@@ -18,7 +18,7 @@ class Menu
 		array_push($this->list, array($url, $name));
 	}
 
-	public function mostrarVetical()
+	private function mostrarVetical()
 	{
 		foreach($this->list as $item)
 		{
@@ -26,12 +26,21 @@ class Menu
 		}
 	}
 
-	public function mostratHorizontal()
+	private function mostrarHorizontal()
 	{
 		foreach($this->list as $item)
 		{
 			print "<a href='".$item[0]."'>".$item[1]."</a>  ";
 		}
+	}
+
+	public function mostrar( $modo )
+	{
+		if( $modo == "Vertical")
+			$this->mostrarVetical();
+		else if( $modo == "Horizontal")
+			$this->mostrarHorizontal();
+		return;
 	}
 }
 
@@ -41,7 +50,7 @@ $menu->cargarURL("http://www.google.com", "Google");
 $menu->cargarURL("http://www.msn.com", "MSN");
 $menu->cargarURL("https://www.yahoo.com", "Yahoo");
 
-$menu->mostrarVetical();
-$menu->mostratHorizontal();
+$menu->mostrar("Vertical");
+$menu->mostrar("Horizontal");
 ?>
 </body>
