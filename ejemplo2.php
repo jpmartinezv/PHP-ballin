@@ -15,14 +15,14 @@ class Menu
 
 	public function cargarURL( $url, $name )
 	{
-		array_push($this->list, array($url, $name));
+		array_push($this->list, array( "url" => $url, "name" => $name ));
 	}
 
 	private function mostrarVetical()
 	{
 		foreach($this->list as $item)
 		{
-			print "<a href='".$item[0]."'>".$item[1]."</a><br>";
+			print "<a href='".$item["url"]."'>".$item["name"]."</a><br>";
 		}
 	}
 
@@ -30,7 +30,7 @@ class Menu
 	{
 		foreach($this->list as $item)
 		{
-			print "<a href='".$item[0]."'>".$item[1]."</a>  ";
+			print "<a href='".$item["url"]."'>".$item["name"]."</a>  ";
 		}
 	}
 
